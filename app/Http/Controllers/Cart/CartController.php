@@ -4,20 +4,14 @@ namespace App\Http\Controllers\Cart;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Checkout;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Session;
 
 class CartController extends Controller
 {
     
-    public function checkout(){
-        return view('cart.checkout');
-    }
-    // public function checkout($price){
-    //     dd($price);
-    //     return view('cart.checkout');
-    // }
-
     public function displayCart(){
         if(auth()->user()){
             //To get all items in cart of specific user
@@ -42,17 +36,7 @@ class CartController extends Controller
         return redirect()->route('cart.display')->with('success', 'Item deleted from the cart successfully!');
     }
 
-    public function prepareCheckout(Request $request){
-        // dd($request->all());
-        $value = $request->price;
-        // dd($value);
-        Session::put('price', $value);
+    
 
-        $newPrice = Session::get('price');
-
-        if($newPrice > 0){
-            return redirect()->route('checkout');
-        }
-    }
 
 }

@@ -8,7 +8,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center text-uppercase">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Cart</a></li>
+                <li class="breadcrumb-item"><a href="#">Services</a></li>
             </ol>
         </nav>
     </div>

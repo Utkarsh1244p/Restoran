@@ -24,4 +24,9 @@ class HomeController extends Controller
         $lunchFood = Food::where('category', 'Lunch')->take(4)->orderBy('id', 'desc')->get();
         return view('home',compact('breakfastFood','lunchFood', 'dinnerFood'));
     }
+
+    public function about()
+    {
+        return view('about');
+    }
 }

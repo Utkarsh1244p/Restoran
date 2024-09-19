@@ -16,11 +16,11 @@
 
 
 <div class="container">
-    @if($totalPrice == 0)
+    {{-- @if($totalPrice == 0)
         <div class="alert alert-danger" role="alert">
             Your cart is empty
       </div>
-    @endif
+    @endif --}}
     @if(session()->has('success'))
       <div class="alert alert-success">
           {{ session()->get('success') }}
@@ -65,6 +65,9 @@
 
             @else
                   <button type="submit" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2" disabled>Checkout</button>
+                  <div style="width:400px; height:200px;">
+                    <p>Your cart is empty. Please add items to your cart to proceed with checkout.</p>
+                  </div>
             @endif
         </div>
     </div>
