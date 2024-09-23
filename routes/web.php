@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\BookingController;
+use App\Http\Controllers\Booking\BookingController;
 use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\Checkout\CheckoutController;
 use App\Http\Controllers\Foods\FoodsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Menu\MenuController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -39,3 +40,6 @@ Route::get('/checkout/done', [CheckoutController::class, 'payWithPayPalSuccess']
 
 //Booking routes
 Route::post('/booking', [BookingController::class, 'BookingTable'])->name('booking.store');
+
+//Menu routes
+Route::get('/menu', [MenuController::class, 'index'])->name('menu.view');
