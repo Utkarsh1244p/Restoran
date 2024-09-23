@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\Checkout\CheckoutController;
 use App\Http\Controllers\Foods\FoodsController;
@@ -14,7 +15,7 @@ Auth::routes();
 
 
 //Home Page Route
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 //About Page Route
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -35,3 +36,6 @@ Route::post('/checkout', [CheckoutController::class, 'checkoutStore'])->name('ch
 Route::get('/checkout/pay', [CheckoutController::class, 'payWithPaypal'])->name('pay.paypal');
 Route::get('/checkout/done', [CheckoutController::class, 'payWithPayPalSuccess'])->name('pay.success');
 
+
+//Booking routes
+Route::post('/booking', [BookingController::class, 'BookingTable'])->name('booking.store');

@@ -234,29 +234,39 @@
             <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
                 <h1 class="text-white mb-4">Book A Table Online</h1>
-                <form>
+                <form method="POST" action="{{route('booking.store')}}" autocomplete="off">
+                    @csrf
                     <div class="row g-3">
+                        @if(Session::has('success'))
+                        <p class="alert alert-success">{{ Session('success') }}</p>
+                        @endif
+                        @if(Session::has('error'))
+                        <p class="alert alert-danger">{{ Session('error') }}</p>
+                        @endif
+                        <input type="hidden" class="form-control" id="user_id" name="user_id" style="display:contents;" value="{{auth()->user()->id}}">
+                         
+
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" value="{{auth()->user()->name}}" required>
                                 <label for="name">Your Name</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" value="{{auth()->user()->email}}" required>
                                 <label for="email">Your Email</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating date" id="date3" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                <input type="text" class="form-control datetimepicker-input" name="date" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" required />
                                 <label for="datetime">Date & Time</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <select class="form-select" id="select1">
+                                <select class="form-select" name="num_of_people" id="select1">
                                   <option value="1">People 1</option>
                                   <option value="2">People 2</option>
                                   <option value="3">People 3</option>
@@ -266,7 +276,7 @@
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Special Request" name="request" id="message" style="height: 100px" required></textarea>
                                 <label for="message">Special Request</label>
                             </div>
                         </div>
