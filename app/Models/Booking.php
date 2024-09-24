@@ -18,6 +18,7 @@ class Booking extends Model
         'date',
         'num_of_people',
         'request',
+        'status',
     ];
 
     public $timestamps = true;

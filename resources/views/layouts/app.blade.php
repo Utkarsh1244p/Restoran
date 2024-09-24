@@ -103,6 +103,12 @@
                                         </a>
         
                                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="{{ route('user.booking') }}">
+                                              My Booking
+                                            </a>
+                                            <a class="dropdown-item" href="{{ route('user.order') }}">
+                                              My Orders
+                                            </a>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
                                                              document.getElementById('logout-form').submit();">
