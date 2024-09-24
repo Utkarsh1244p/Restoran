@@ -63,5 +63,8 @@ Route::group(['prefix' => '/user', 'as' => 'user.'], function(){
 
 Route::get('admin/login', [AdminController::class, 'viewLogin'])->name('admin.login');
 Route::post('admin/login', [AdminController::class, 'checkLogin'])->name('check.login');
-Route::get('admin/dashboard', [AdminController::class, 'viewDashboard'])->name('admin.dashboard');
 Route::post('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+Route::get('admin/dashboard', [AdminController::class, 'viewDashboard'])->name('admin.dashboard');
+Route::get('admin/admins', [AdminController::class, 'viewAdmins'])->name('admin.all.admins');
+Route::get('admin/create-admin', [AdminController::class, 'createAdmin'])->name('admin.create.admin');
+Route::post('admin/store-admin', [AdminController::class, 'storeAdmin'])->name('admin.store.admin');

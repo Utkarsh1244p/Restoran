@@ -14,7 +14,7 @@
 <div id="wrapper">
     <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">LOGO</a>
+            <a class="navbar-brand" href="#">Restoran</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -24,12 +24,12 @@
                 @auth('admin')
                 <ul class="navbar-nav side-nav" >
                     <li class="nav-item">
-                        <a class="nav-link" style="margin-left: 20px;" href="index.html">Home
+                        <a class="nav-link" style="margin-left: 20px;" href="{{route('admin.dashboard')}}">Home
                         <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admins/admins.html" style="margin-left: 20px;">Admins</a>
+                        <a class="nav-link" href="{{route('admin.all.admins')}}" style="margin-left: 20px;">Admins</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="orders-admins/show-orders.html" style="margin-left: 20px;">Orders</a>
@@ -45,7 +45,7 @@
                 <ul class="navbar-nav ml-md-auto d-md-flex">
                     @auth('admin')
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home
+                        <a class="nav-link" href="{{route('admin.dashboard')}}">Home
                         <span class="sr-only">(current)</span>
                         </a>
                     </li>
