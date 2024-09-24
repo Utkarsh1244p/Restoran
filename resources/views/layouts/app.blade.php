@@ -78,9 +78,9 @@
                         <div class="navbar-nav ms-auto py-0 pe-4">
                             <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
                             <a href="{{route('about')}}" class="nav-item nav-link">About</a>
-                            <a href="service.html" class="nav-item nav-link">Service</a>
+                            <a href="{{route('services')}}" class="nav-item nav-link">Service</a>
                             <a href="{{route('menu.view')}}" class="nav-item nav-link">Menu</a>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
                             <ul class="navbar-nav ms-auto">
                                 <!-- Authentication Links -->
                                 @guest

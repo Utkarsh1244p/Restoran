@@ -243,18 +243,24 @@
                         @if(Session::has('error'))
                         <p class="alert alert-danger">{{ Session('error') }}</p>
                         @endif
-                        <input type="hidden" class="form-control" id="user_id" name="user_id" style="display:contents;" value="{{auth()->user()->id}}">
-                         
+                        {{-- <input type="hidden" class="form-control" id="user_id" name="user_id" style="display:contents;" value="{{auth()->user()->id}}"> --}}
+                        @if(auth()->check())
+                        <input type="hidden" class="form-control" id="user_id" name="user_id" style="display:contents;" value="{{ auth()->user()->id }}">
+                        @else
+                            <!-- Optionally, add an alternative if no user is logged in -->
+                            <input type="hidden" class="form-control" id="user_id" name="user_id" style="display:contents;" value="Guest">
+                        @endif
+                    
 
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" value="{{auth()->user()->name}}" required>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
                                 <label for="name">Your Name</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" value="{{auth()->user()->email}}" required>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                                 <label for="email">Your Email</label>
                             </div>
                         </div>
@@ -388,18 +394,20 @@
             <h1 class="mb-5">Our Clients Say!!!</h1>
         </div>
         <div class="owl-carousel testimonial-carousel">
+            @foreach($reviews as $review)
             <div class="testimonial-item bg-transparent border rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <p>{{$review->review}}</p>
                 <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('assets/img/testimonial-1.jpg')}}" style="width: 50px; height: 50px;">
+                    {{-- <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('assets/img/testimonial-1.jpg')}}" style="width: 50px; height: 50px;"> --}}
                     <div class="ps-3">
-                        <h5 class="mb-1">Client Name</h5>
-                        <small>Profession</small>
+                        <h5 class="mb-1">{{$review->name}}</h5>
+                        {{-- <small>Profession</small> --}}
                     </div>
                 </div>
             </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
+            @endforeach
+            {{-- <div class="testimonial-item bg-transparent border rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
                 <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
                 <div class="d-flex align-items-center">
@@ -431,7 +439,7 @@
                         <small>Profession</small>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

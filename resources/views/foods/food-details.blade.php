@@ -47,6 +47,7 @@
                     </div>
                     
                 </div>
+                @auth
                 <form method="POST" action="{{route('food.add.cart', $foodItem->id)}}">
                     @csrf
                     <input type="text" hidden name="user_id" value="{{ auth()->user()->id }}">
@@ -61,6 +62,9 @@
                        <button type="submit" class="btn btn-primary py-3 px-5 mt-2" href="">Add to Cart</button>
                     @endif
                 </form>
+                @else
+                  <p class="alert alert-danger" style="width: 50%">Login to add this product to cart.</p>
+                @endif
             </div>
             
         </div>

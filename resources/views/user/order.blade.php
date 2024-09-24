@@ -38,8 +38,8 @@
                 <td>{{$order->address}}</td>
                 <td>{{$order->price}}</td>
                 <td>{{$order->status}}</td>
-                @if($order->status == 'delivered')
-                  <td><button class="btn btn-success">Review</button></td>
+                @if($order->status == 'Delivered')
+                  <td><a href="{{route('user.review.write')}}" class="btn btn-success">Review</a></td>
                 @else
                   <td>Not Delivered Yet</td>
                 @endif

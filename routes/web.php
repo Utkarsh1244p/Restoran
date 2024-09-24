@@ -16,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
-//Home Page Route
+//Frontend Pages Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
-//About Page Route
+Route::get('/home', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-
+Route::get('/menu', [MenuController::class, 'index'])->name('menu.view');
+Route::get('/services', [HomeController::class, 'services'])->name('services');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 //Food 
 Route::get('/foods/food-details/{id}', [FoodsController::class, 'foodDetails'])->name('food.details');
@@ -42,9 +43,17 @@ Route::get('/checkout/done', [CheckoutController::class, 'payWithPayPalSuccess']
 //Booking routes
 Route::post('/booking', [BookingController::class, 'BookingTable'])->name('booking.store');
 
-//Menu routes
-Route::get('/menu', [MenuController::class, 'index'])->name('menu.view');
 
-//My Booking routes
-Route::get('/user-booking', [UserController::class, 'getBookings'])->name('user.booking');
-Route::get('/user-order', [UserController::class, 'getOrders'])->name('user.order');
+
+//User Routes
+Route::group(['prefix' => '/user', 'as' => 'user.'], function(){
+    
+    //My Booking routes
+    Route::get('/booking', [UserController::class, 'getBookings'])->name('booking');
+    Route::get('/order', [UserController::class, 'getOrders'])->name('order');
+    
+    //Review routes
+    Route::get('/review', [UserController::class, 'writeNewReview'])->name('review.write');
+    Route::post('/store-review', [UserController::class, 'storeReview'])->name('review.store');
+
+});

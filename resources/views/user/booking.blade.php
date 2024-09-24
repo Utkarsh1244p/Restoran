@@ -37,7 +37,7 @@
                 <td>{{$booking->num_of_people}}</td>
                 <td>{{$booking->status}}</td>
                 @if($booking->status == 'Booked')
-                  <td><button class="btn btn-success">Review</button></td>
+                  <td><a href="{{route('user.review.write')}}" class="btn btn-success">Review</a></td>
                 @else
                   <td>Not Available Yet</td>
                 @endif

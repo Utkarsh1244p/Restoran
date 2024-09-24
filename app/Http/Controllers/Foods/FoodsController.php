@@ -15,16 +15,15 @@ class FoodsController extends Controller
 
         if(auth()->user()){
             $foodItem = Food::find($id);
-            // dd($foodItem->image);
-
-            //verifying that, is the user added item to cart or not
             $cartVerifying = Cart::where('user_id', auth()->user()->id)->where('food_id', $id)->count();
-            // dd($cartVerifying);
 
             return view('foods.food-details', compact('foodItem', 'cartVerifying'));
         }
         else{
-            abort(403);
+            $foodItem = Food::find($id);
+
+            return view('foods.food-details', compact('foodItem'));
+        
         }
 
     }

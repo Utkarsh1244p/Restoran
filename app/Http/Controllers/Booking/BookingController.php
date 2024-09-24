@@ -17,6 +17,10 @@ class BookingController extends Controller
         $formattedDate = \Carbon\Carbon::createFromFormat('m/d/Y h:i A', $request->input('date'))->format('Y-m-d H:i:s');
 
         // Check if the selected date is today or in the past
+        if($request->input('user_id') == 'Guest'){
+            return redirect()->route('home')->with('error', 'You must be logged in to book a table.');
+        }
+
         if ($formattedDate < $currentDateTime) {
             return redirect()->route('home')->with('error', 'Invalid Date or Time! You cannot select today or a past date.');
         } else {
