@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Booking\BookingController;
 use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\Checkout\CheckoutController;
@@ -7,6 +8,8 @@ use App\Http\Controllers\Foods\FoodsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\Users\UserController;
+use App\Http\Middleware\CheckForAdminLogin;
+use App\Http\Middleware\CheckForAuth;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -55,5 +58,10 @@ Route::group(['prefix' => '/user', 'as' => 'user.'], function(){
     //Review routes
     Route::get('/review', [UserController::class, 'writeNewReview'])->name('review.write');
     Route::post('/store-review', [UserController::class, 'storeReview'])->name('review.store');
-
+    
 });
+
+Route::get('admin/login', [AdminController::class, 'viewLogin'])->name('admin.login');
+Route::post('admin/login', [AdminController::class, 'checkLogin'])->name('check.login');
+Route::get('admin/dashboard', [AdminController::class, 'viewDashboard'])->name('admin.dashboard');
+Route::post('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
