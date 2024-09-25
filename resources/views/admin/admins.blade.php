@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+
   @if(Session::has('success'))
     <p class="alert alert-success">{{ Session('success') }}</p>
   @endif
@@ -36,6 +36,6 @@
     </div>
   </div>
 </div>
-</div>
+
 
 @endsection

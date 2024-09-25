@@ -65,6 +65,28 @@ Route::get('admin/login', [AdminController::class, 'viewLogin'])->name('admin.lo
 Route::post('admin/login', [AdminController::class, 'checkLogin'])->name('check.login');
 Route::post('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 Route::get('admin/dashboard', [AdminController::class, 'viewDashboard'])->name('admin.dashboard');
+
+//admins
 Route::get('admin/admins', [AdminController::class, 'viewAdmins'])->name('admin.all.admins');
 Route::get('admin/create-admin', [AdminController::class, 'createAdmin'])->name('admin.create.admin');
 Route::post('admin/store-admin', [AdminController::class, 'storeAdmin'])->name('admin.store.admin');
+
+
+//orders
+Route::get('admin/orders', [AdminController::class, 'viewOrders'])->name('admin.all.orders');
+Route::get('admin/order-edit/{id}', [AdminController::class, 'editOrder'])->name('admin.edit.order');
+Route::post('admin/order-edit/{id}', [AdminController::class, 'updateOrder'])->name('admin.update.order');
+Route::get('admin/order-delete/{id}', [AdminController::class, 'deleteOrder'])->name('admin.delete.order');
+
+//foods
+Route::get('admin/foods', [AdminController::class, 'viewFoods'])->name('admin.all.foods');
+Route::get('admin/food-create', [AdminController::class, 'createFood'])->name('admin.create.food');
+Route::post('admin/food-store', [AdminController::class, 'storeFood'])->name('admin.store.food');
+Route::get('admin/food-delete/{id}', [AdminController::class, 'deleteFood'])->name('admin.delete.food');
+
+//bookings
+Route::get('admin/bookings', [AdminController::class, 'viewBookings'])->name('admin.all.bookings');
+Route::get('admin/booking-edit/{id}', [AdminController::class, 'editBooking'])->name('admin.edit.booking');
+Route::post('admin/booking-edit/{id}', [AdminController::class, 'updateBooking'])->name('admin.update.booking');
+Route::get('admin/booking-delete/{id}', [AdminController::class, 'deleteBooking'])->name('admin.delete.booking');
+

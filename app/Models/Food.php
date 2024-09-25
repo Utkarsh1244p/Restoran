@@ -17,6 +17,7 @@ class Food extends Authenticatable
         'name',
         'price',
         'category',
+        'image',
         'description',
         'image',
     ];
