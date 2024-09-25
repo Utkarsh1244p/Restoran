@@ -79,6 +79,13 @@ class AdminController extends Controller
 
     }
 
+    public function deleteAdmin($id){
+        $admin = Admin::find($id);
+        $admin->delete();
+
+        return redirect()->route('admin.all.admins')->with('success', 'Admin Deleted, Successfully');
+    }
+
 
 
     //Orders Related Routes

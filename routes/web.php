@@ -68,8 +68,9 @@ Route::get('admin/dashboard', [AdminController::class, 'viewDashboard'])->name('
 
 //admins
 Route::get('admin/admins', [AdminController::class, 'viewAdmins'])->name('admin.all.admins');
-Route::get('admin/create-admin', [AdminController::class, 'createAdmin'])->name('admin.create.admin');
-Route::post('admin/store-admin', [AdminController::class, 'storeAdmin'])->name('admin.store.admin');
+Route::get('admin/admin-create', [AdminController::class, 'createAdmin'])->name('admin.create.admin');
+Route::post('admin/admin-store', [AdminController::class, 'storeAdmin'])->name('admin.store.admin');
+Route::get('admin/admin-delete/{id}', [AdminController::class, 'deleteAdmin'])->name('admin.delete.admin');
 
 
 //orders

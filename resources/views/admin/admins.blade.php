@@ -20,6 +20,7 @@
               <th scope="col">Id</th>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -28,6 +29,9 @@
               <th scope="row">{{$admin->id}}</th>
               <td>{{$admin->name}}</td>
               <td>{{$admin->email}}</td>
+              <td>
+                <a href="{{route('admin.delete.admin', $admin->id)}}" class="btn btn-danger">Delete</a>
+              </td>
             </tr>
             @endforeach
           </tbody>
