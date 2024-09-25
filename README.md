@@ -29,37 +29,32 @@ To set up the project locally, follow these steps:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/restoran.git
+   git clone https://github.com/Utkarsh1244p/restoran.git
    cd restoran
 
 2. **Install PHP Dependencies**
 Install the required PHP dependencies using Composer:
    ```bash
-   git clone https://github.com/your-username/restoran.git
    composer install
 
 3. **Install Node.js Dependencies**
 
    ```bash
-   git clone https://github.com/your-username/restoran.git
    npm install
 
 4. **Run Migrations**
 I made many migrations in project, you can use them by running the migrations:
    ```bash
-   git clone https://github.com/your-username/restoran.git
    php artisan migrate
 
 5. **Run the Development Server**
 Start the Laravel development server:
    ```bash
-   git clone https://github.com/your-username/restoran.git
    php artisan serve
 
 6. **Run Vite Development Server**
 In a separate terminal window, start the Vite development server:
    ```bash
-   git clone https://github.com/your-username/restoran.git
    npm run dev
 
 ## Usage
